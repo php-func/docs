@@ -3,7 +3,7 @@ https://phpfunc-com.github.io/docs/
 # [PhpFunc.com](https://PhpFunc.com)
 Documentation for Php Func Repositories
 
-[Todo List](TODO.mnd)
+[Todo List](TODO.md)
 
 
 ## Welcome to GitHub Pages
