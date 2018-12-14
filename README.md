@@ -1,6 +1,6 @@
 https://phpfunc-com.github.io/docs/
 
-# docs
+# [PhpFunc.com](https://PhpFunc.com)
 Documentation for Php Func Repositories
 
 [Todo List](TODO.mnd)
