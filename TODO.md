@@ -10,3 +10,4 @@
 
 + Wordpress on docker
 
++ Email - external imap server with antispam filter
