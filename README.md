@@ -1,3 +1,5 @@
+https://phpfunc-com.github.io/docs/
+
 # docs
 Documentation for Php Func Repositories
 
