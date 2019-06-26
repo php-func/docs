@@ -124,16 +124,20 @@ ta sama wartość może być pokazana jako dwa różne formaty
       outToIn()
 
 
-## Identyfikator
+## Identyfikator for Sql
 
 
-    abstract class Param extends Value
+    abstract class ParamSql extends Value
       
-      $identifier = new ParamIdentifier()            
+      $identifier = new ParamSqlIdentifier()            
       $value = '' // new ParamValue()
       $validator = new ValidatorCollection()
-      $title = new ParamTitle();
-          
+      
+      setValue
+      getValue
+      value()
+      validate()
+      
           
     class ParamIdentifier
       id (row id)
@@ -145,16 +149,117 @@ ta sama wartość może być pokazana jako dwa różne formaty
       $value = new Value()
        
 
-    class ParamTitle extends Word
-      $language_iso = 'PL' // localisation
-      $word = ''
-      
       
     class ValidatorCollection
       $collection = [
         ['empty',false]
         ['format', 'XX-XXX']
       ]
+      
+
+## Identyfikator for Sql
+
+
+    abstract class Param extends SqlValue
+      
+      $identifier = new ParamSqlIdentifier()            
+      $value = '' // new ParamValue()
+      $validator = new ValidatorCollection()
+      
+      setValue
+      getValue
+      value()
+      validate()
+      
+          
+    class ParamIdentifier
+      id (row id)
+      source (table name)
+      name (column name)
+      type (varchar)
+  
+    class ParamValue
+      $value = new Value()
+       
+
+      
+    class ValidatorCollection
+      $collection = [
+        ['empty',false]
+        ['format', 'XX-XXX']
+      ]
+      
+
+
+## Identyfikator for RESTAPI
+
+
+    abstract class Param extends JsonValue
+      
+      $identifier = new ParamJsonIdentifier()            
+      $value = '' // new ParamValue()
+      
+      create()
+      read()
+      update()
+      delete()
+      
+      validate()
+      
+          
+    class ParamJsonIdentifier 
+      id (request id)
+      source (url)
+      name (variable name)
+      type (string)
+  
+    
+    class JsonValue extends CRUDValue
+      create()
+      read()
+      update()
+      delete()
+        $validator = new ValidatorCollection() // import for REST Validation
+      
+     CreateValue
+      $value
+      $validator
+
+     ReadValue
+      $value
+      $validator
+
+     UpdateValue
+      $value
+      $validator
+
+     DeleteValue
+      $value
+      $validator
+
+## ParamCollection      
+
+  $UserInfo = new ParamCollection([
+    ParamIdentifier,
+    ParamJsonIdentifier
+    ParamSqlIdentifier
+  ])
+  
+  
+  
+## Identyfikator dla widoku Formularza, Tabeli
+
+    ParamView
+      $param = new Param();
+      $title = new ParamTitle();
+      $format = new ParamFormat();
+
+
+    class ParamTitle extends Word
+      $language_iso = 'PL' // localisation
+      $word = ''
+      $shortcut = ''
+      $description = ''    
       
 
 ## Przykład złożonego parametru
