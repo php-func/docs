@@ -32,8 +32,8 @@ Parametr ma takie cechy:
 + identyfikator: np id w bazie mysql, id session
 + przynaleźność: do konkretnego modelu danych, zbioru, np danych uzytkownika, wysyłającego, odbierającego wysyłkę, ten sam parametr może przynaleźeć do kilku zbiorów
 + format wymiany danych: np kod pocztowy, Zapis Wartości Waluty w różnych krajach ma różne formaty, lub zapis Imienia i Nazwiska razem, lub ulicy i numeru domu razem
-  + validator
-  + type
+  + validator: np. przy nazwisku pierwsza litera duża
+  + type: obliczany na podstawie walidatorów w odniesieniu do konrketnych potrzeb: sql, php, java, javascript object
   + dependency: w przypadku złożenia wielu typów na raz, jako zbiór Parametrów
   + convert 
     + from()
@@ -69,6 +69,16 @@ Parametr ma takie cechy:
     + City
     + Country
     
+## Przykład prostego parametru
+
+FirstName
+LastName
+
+## Przykład złożonego parametru
+
+PersonName 
+  FirstName + BetweenName + LastName
+
 
 [Todo List](TODO.md)
 
