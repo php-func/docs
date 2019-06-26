@@ -6,6 +6,10 @@ Documentation for Php Func Repositories
 ## Goals
 The libraries are created for support fast development
 
+## Cele projektu
+Biblioteki pomocne przy szybkim budowaniu aplikacji maj
+
+
 
 [Todo List](TODO.md)
 
