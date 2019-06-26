@@ -260,6 +260,32 @@ ta sama wartość może być pokazana jako dwa różne formaty
     
     $UserInfo->find('ParamIdentifier')->update('22') // aktualizuje wybraną zmienna
     
+    
+## Wymiana danych pomiędzy ParamSqlCollection i ParamJsonCollection
+
+    $UserSqlInfo = new ParamSqlCollection([
+      ParamIdentifier,
+      ParamJsonIdentifier
+      ParamSqlIdentifier
+    ])  
+    
+    
+    $UserJsonInfo = new ParamJsonCollection([
+      ParamIdentifier,
+      ParamJsonIdentifier
+      ParamSqlIdentifier
+    ])  
+    
+    
+### jedna komenda robi wymiane danych pomiedzy RESTAPI a bazą danych MySQL
+
+    $UserJsonInfo-update(
+      $UserSqlInfo->read()
+    );
+    
+    
+    
+    //new Fill(UserSqlInfo)
   
 ## Identyfikator dla widoku Formularza, Tabeli
 
