@@ -28,7 +28,7 @@ Wystarczy zbudować model danych wykorzystując Parametry:
 + opcjonalne: option list
 
 
-Parametr ma takie cechy:
+## Parametr ma takie cechy:
 
 + Identifier - identyfikator: np id w bazie mysql, id session
   + ID = string/integer/mix
@@ -107,15 +107,16 @@ ta sama wartość może być pokazana jako dwa różne formaty
       
       $identifier = new ParamIdentifier()      
       $format = new ParamFormat()
-      $value = new ParamValue()     
+      $value = new ParamValue()
       $validator = new ValidatorCollection()
     
     
 
     class Identifier
     
-      id
-      source
+      id (row id)
+      source (table name)
+      name (column name)
 
 
     class ParamFormat
@@ -128,8 +129,6 @@ ta sama wartość może być pokazana jako dwa różne formaty
     class ParamValue
   
       $value = new Value()
-      $out= ''; get
-      $in= ''; set
       
       fromString()
       toString()
