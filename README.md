@@ -242,14 +242,14 @@ ta sama wartość może być pokazana jako dwa różne formaty
     ])
 
 
-    $UserInfo->read()->toString(); // pokazuje wszystkie dane jako łańcuch
-    $UserInfo->read()->toFormatString(', '); // pokazuje wszystkie dane jako odseparowane przecinkiem wyrazy
+    $UserInfo->each()->read()->toString(); // pokazuje wszystkie dane jako łańcuch
+    $UserInfo->each()->read()->toFormatString(', '); // pokazuje wszystkie dane jako odseparowane przecinkiem wyrazy
     
     
-    $UserInfo->update() // aktualizuje wszystkie zmienne
+    $UserInfo->each()->update() // aktualizuje wszystkie zmienne, działania na każdym atrybucie
     
     
-    $UserInfo->delete() // usuwa wszystkie zmienne
+    $UserInfo->each()->delete() // usuwa wszystkie zmiennem, działania na każdym atrybucie
 
 
     $UserInfo->first()->delete() // usuwa pierwsza zmienna
