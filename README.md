@@ -80,6 +80,23 @@ PersonName
   FirstName + BetweenName + LastName
 
 
+## Przykład prostego parametru
+
++ Street
++ HomeNumber
++ PostCode
++ City
+
+
+## Przykład złożonego parametru
+
+  GermanyAddress
+
+    Street
+    HomeNumber
+    PostCode
+    City
+  
 [Todo List](TODO.md)
 
 For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
