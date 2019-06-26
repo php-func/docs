@@ -235,13 +235,31 @@ ta sama wartość może być pokazana jako dwa różne formaty
       
 ## ParamCollection      
 
-  $UserInfo = new ParamCollection([
-    ParamIdentifier,
-    ParamJsonIdentifier
-    ParamSqlIdentifier
-  ])
-  
-  
+    $UserInfo = new ParamCollection([
+      ParamIdentifier,
+      ParamJsonIdentifier
+      ParamSqlIdentifier
+    ])
+
+
+    $UserInfo->read()->toString(); // pokazuje wszystkie dane jako łańcuch
+    $UserInfo->read()->toFormatString(', '); // pokazuje wszystkie dane jako odseparowane przecinkiem wyrazy
+    
+    
+    $UserInfo->update() // aktualizuje wszystkie zmienne
+    
+    
+    $UserInfo->delete() // usuwa wszystkie zmienne
+
+
+    $UserInfo->first()->delete() // usuwa pierwsza zmienna
+    
+    $UserInfo->current()->delete() // usuwa aktualna zmienna
+    
+    $UserInfo->find('ParamIdentifier')->delete() // usuwa wybraną zmienna
+    
+    $UserInfo->find('ParamIdentifier')->update('22') // aktualizuje wybraną zmienna
+    
   
 ## Identyfikator dla widoku Formularza, Tabeli
 
