@@ -34,6 +34,7 @@ Parametr ma takie cechy:
 + format wymiany danych: np kod pocztowy, Zapis Wartości Waluty w różnych krajach ma różne formaty, lub zapis Imienia i Nazwiska razem, lub ulicy i numeru domu razem
   + validator
   + type
+  + dependency: w przypadku złożenia wielu typów na raz, jako zbiór Parametrów
   + convert 
     + from()
     + to()
