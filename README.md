@@ -31,7 +31,7 @@ Wystarczy zbudować model danych wykorzystując Parametry:
 Parametr ma takie cechy:
 + identyfikator: np id w bazie mysql, id session
 + przynaleźność: do konkretnego modelu danych, zbioru, np danych uzytkownika, wysyłającego, odbierającego wysyłkę, ten sam parametr może przynaleźeć do kilku zbiorów
-+ format wymiany danych: np kod pocztowy, Zapis Wartości Waluty w różnych krajach ma różne formaty
++ format wymiany danych: np kod pocztowy, Zapis Wartości Waluty w różnych krajach ma różne formaty, lub zapis Imienia i Nazwiska razem, lub ulicy i numeru domu razem
   + validator
   + type
   + convert 
