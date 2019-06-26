@@ -82,22 +82,23 @@ Wystarczy zbudować model danych wykorzystując Parametry:
     
 ## Przykład prostego parametru
 
-FirstName
-LastName
+    FirstName
+    LastName
 
 ## Przykład złożonego parametru
 
-PersonName 
-  FirstName + BetweenName + LastName
+    PersonName 
+      FirstName + BetweenName + LastName
+
 
 
 ## Przykład prostego parametru
 
-+ StreetParam extends Convert implements Param
+    + StreetParam extends Convert implements Param
 
-+ HomeNumber
-+ PostCode
-+ City
+    + HomeNumber
+    + PostCode
+    + City
 
 
 
@@ -131,12 +132,6 @@ ta sama wartość może być pokazana jako dwa różne formaty
       
       $identifier = new ParamSqlIdentifier()            
       $value = '' // new ParamValue()
-      $validator = new ValidatorCollection()
-      
-      setValue
-      getValue
-      value()
-      validate()
       
           
     class ParamIdentifier
@@ -172,12 +167,12 @@ ta sama wartość może być pokazana jako dwa różne formaty
       name (column name)
       type (varchar)
   
-  
-  class ParamSqlType
-      static Varchar
-      static Text
-      static Integer
-      static Blob
+
+    class ParamSqlType
+        static Varchar
+        static Text
+        static Integer
+        static Blob
       
     
 
