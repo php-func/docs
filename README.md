@@ -164,13 +164,7 @@ ta sama wartość może być pokazana jako dwa różne formaty
       
       $identifier = new ParamSqlIdentifier()            
       $value = '' // new ParamValue()
-      $validator = new ValidatorCollection()
-      
-      setValue
-      getValue
-      value()
-      validate()
-      
+            
           
     class ParamIdentifier
       id (row id)
@@ -178,18 +172,14 @@ ta sama wartość może być pokazana jako dwa różne formaty
       name (column name)
       type (varchar)
   
-    class ParamValue
-      $value = new Value()
-       
-
+  
+  class ParamSqlType
+      static Varchar
+      static Text
+      static Integer
+      static Blob
       
-    class ValidatorCollection
-      $collection = [
-        ['empty',false]
-        ['format', 'XX-XXX']
-      ]
-      
-
+    
 
 ## Identyfikator for RESTAPI
 
@@ -213,8 +203,12 @@ ta sama wartość może być pokazana jako dwa różne formaty
       name (variable name)
       type (string)
   
+    class ParamJsonType
+      static String
+      static Integer
+      static Bollean
     
-    class JsonValue extends CRUDValue
+    class JsonValue extends CRUDValue implements CreateValue, ReadValue, UpdateValue, DeleteValue
       create()
       read()
       update()
@@ -237,6 +231,13 @@ ta sama wartość może być pokazana jako dwa różne formaty
       $value
       $validator
 
+      
+    class ValidatorCollection
+      $collection = [
+        ['empty',false]
+        ['format', 'XX-XXX']
+      ]
+      
 ## ParamCollection      
 
   $UserInfo = new ParamCollection([
