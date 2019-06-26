@@ -29,15 +29,26 @@ Wystarczy zbudować model danych wykorzystując Parametry:
 
 
 Parametr ma takie cechy:
-+ identyfikator: np id w bazie mysql, id session
-+ przynaleźność: do konkretnego modelu danych, zbioru, np danych uzytkownika, wysyłającego, odbierającego wysyłkę, ten sam parametr może przynaleźeć do kilku zbiorów
-+ format wymiany danych: np kod pocztowy, Zapis Wartości Waluty w różnych krajach ma różne formaty, lub zapis Imienia i Nazwiska razem, lub ulicy i numeru domu razem
-  + validator: np. przy nazwisku pierwsza litera duża
-  + type: obliczany na podstawie walidatorów w odniesieniu do konrketnych potrzeb: sql, php, java, javascript object
-  + dependency: w przypadku złożenia wielu typów na raz, jako zbiór Parametrów
-  + convert 
+
++ Identifier - identyfikator: np id w bazie mysql, id session
+  + ID = string/integer/mix
+  + Source = datamodel, którego dotyczy id
+  
++ BelongCollection - przynaleźność: do konkretnego modelu danych, zbioru, np danych uzytkownika, wysyłającego, odbierającego wysyłkę, ten sam parametr może przynaleźeć do kilku zbiorów. Chodzi o walidację na poziomie przynaleźności, w przypadku, gdyby np w zbiorze krajów były jakieś ograniczenia
+  
++ ParamFormat wymiany danych: np kod pocztowy, Zapis Wartości Waluty w różnych krajach ma różne formaty, lub zapis Imienia i Nazwiska razem, lub ulicy i numeru domu razem
+
     + from()
     + to()
+    
+  + ValidatorCollection: np. przy nazwisku pierwsza litera duża
+  
+  + ParamType: obliczany na podstawie walidatorów w odniesieniu do konkretnych potrzeb: sql, php, java, javascript object
+      + export()
+      + import()
+      
+  + dependency collection: w przypadku złożenia wielu typów na raz, jako zbiór Parametrów  
+    
 
 
 ## Przykład kolekcji parametrów
@@ -82,20 +93,51 @@ PersonName
 
 ## Przykład prostego parametru
 
-+ Street
++ StreetParam extends Convert implements Param
+
 + HomeNumber
 + PostCode
 + City
 
 
+
+
+    abstract class Param extends Identifier
+      
+      identifier = new Identifier()      
+      format = new ParamFormat()
+      validator = new ValidatorCollection()
+    
+    
+
+    abstract class Identifier
+      + id
+      + source
+
+  
+    interface ParamFormat
+
+      fromString()
+      toString()
+  
+
+
 ## Przykład złożonego parametru
 
-  GermanyAddress
+  GermanyAddressParam extends ParamFormat implements ParamCollection
+    
+    Collection
+      Street
+      HomeNumber
+      PostCode
+      City
 
-    Street
-    HomeNumber
-    PostCode
-    City
+  
+  interface ParamFormat
+
+      fromString()
+      toString()
+
   
 [Todo List](TODO.md)
 
