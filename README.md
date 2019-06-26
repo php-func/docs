@@ -101,22 +101,36 @@ PersonName
 
 
 
+ta sama wartość może być pokazana jako dwa różne formaty
 
     abstract class Param extends Identifier
       
-      identifier = new Identifier()      
-      format = new ParamFormat()
-      validator = new ValidatorCollection()
+      $identifier = new ParamIdentifier()      
+      $format = new ParamFormat()
+      $value = new ParamValue()     
+      $validator = new ValidatorCollection()
     
     
 
-    abstract class Identifier
-      + id
-      + source
+    class Identifier
+    
+      id
+      source
 
+
+    class ParamFormat
   
-    interface ParamFormat
-
+      $format = new Format($1 + ',' + $2);
+      
+      fromString()
+      toString()
+  
+    class ParamValue
+  
+      $value = new Value()
+      $out= ''; get
+      $in= ''; set
+      
       fromString()
       toString()
   
