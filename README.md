@@ -279,8 +279,8 @@ ta sama wartość może być pokazana jako dwa różne formaty
     
 ### jedna komenda robi wymiane danych pomiedzy RESTAPI a bazą danych MySQL
 
-    $UserJsonInfo-update(
-      $UserSqlInfo->read()
+    $UserJsonInfo->all()->update(
+      $UserSqlInfo->all()->read()
     );
     
     
