@@ -121,10 +121,15 @@ ta sama wartość może być pokazana jako dwa różne formaty
 
     class ParamFormat
   
-      $format = new Format($1 + ',' + $2);
+      $value_in = 00.00;
+      $type_in = ParamType::PhpInt
+      
+      $value_out = 0.000,00;
+      $type_out = ParamType::UsaFormat
       
       fromString()
       toString()
+      
   
     class ParamValue
   
