@@ -101,44 +101,61 @@ PersonName
 
 
 
+
+
+## Convert Format
 ta sama wartość może być pokazana jako dwa różne formaty
 
-    abstract class Param extends Identifier
-      
-      $identifier = new ParamIdentifier()      
-      $format = new ParamFormat()
-      $value = new ParamValue()
-      $validator = new ValidatorCollection()
-    
-    
+    $format = new ParamFormat()
 
-    class Identifier
-    
+    class ParamFormat extends Convert
+  
+      $value_in = 00.00; // default
+      $type_in = ParamFormatType::PhpFloat
+      
+      $value_out = "0.000,00";
+      $type_out = ParamFormatType::NumberFormat
+      
+
+
+    class Convert
+      
+      inToOut()
+      outToIn()
+
+
+## Identyfikator
+
+
+    abstract class Param extends Value
+      
+      $identifier = new ParamIdentifier()            
+      $value = '' // new ParamValue()
+      $validator = new ValidatorCollection()
+      $title = new ParamTitle();
+          
+          
+    class ParamIdentifier
       id (row id)
       source (table name)
       name (column name)
-
-
-    class ParamFormat
   
-      $value_in = 00.00;
-      $type_in = ParamType::PhpInt
-      
-      $value_out = 0.000,00;
-      $type_out = ParamType::UsaFormat
-      
-      fromString()
-      toString()
-      
   
     class ParamValue
-  
       $value = new Value()
-      
-      fromString()
-      toString()
-  
+       
 
+    class ParamTitle extends Word
+      $language_iso = 'PL' // localisation
+      $word = ''
+      
+      
+    class ValidatorCollection
+      $collection = [
+        ['empty',false]
+        ['format', 'XX-XXX']
+      ]
+      
 
 ## Przykład złożonego parametru
 
