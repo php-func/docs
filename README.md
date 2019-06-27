@@ -132,7 +132,7 @@ ta sama wartość może być pokazana jako dwa różne formaty
       
       $identifier = new ParamSqlIdentifier()            
       $value = '' // new ParamValue()
-      
+      $required = true;
           
     class ParamIdentifier
       id (row id)
@@ -159,7 +159,7 @@ ta sama wartość może być pokazana jako dwa różne formaty
       
       $identifier = new ParamSqlIdentifier()            
       $value = '' // new ParamValue()
-            
+      $required = true;
           
     class ParamIdentifier
       id (row id)
@@ -183,6 +183,7 @@ ta sama wartość może być pokazana jako dwa różne formaty
       
       $identifier = new ParamJsonIdentifier()            
       $value = '' // new ParamValue()
+      $required = true;
       
       create()
       read()
