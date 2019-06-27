@@ -356,70 +356,77 @@ new DefCollection(
   $password_sql
 )->Insert()
 
- Source:
-    + Sql
-    + RestApi
-    + ViewHtml
-    
-    class Source
-      $id (request, row, form id)      
-      $source: Source:RestApi /Sql /Html
-      $path: "/users/" /xpath
-      $required: false
+Source:
+
++ Sql
++ RestApi
++ ViewHtml
+
+
+      class Source
+        $id (request, row, form id)      
+        $source: Source:RestApi /Sql /Html
+        $path: "/users/" /xpath
+        $required: false
     
 
- Process:
-   + Create
-   + Read
-   + Update
-   + Delete
+Process:
+
++ Create
++ Read
++ Update
++ Delete
    
-   
-    class Process
-      $value
-      $validator_collection = new ValidatorCollection() 
-    
-    
-    class ProcessCollection
-    
-  Param:    
-     + Username
-     + Password
+
+      class Process
+        $value
+        $validator_collection = new ValidatorCollection() 
+
+
+      class ProcessCollection
+
+Param:    
+
++ Username
++ Password
       
-    class Param
-      $name: first_name
-      $type: Json::String      
-      $label: "First Name"
-      $description: "First Name of User, Required"            
-      $value = '';
-      
-      setValue();
-      getValue();
+
+      class Param
+        $name: first_name
+        $type: Json::String      
+        $label: "First Name"
+        $description: "First Name of User, Required"            
+        $value = '';
+
+        setValue();
+        getValue();
         
 ## Inny sposób uzycia, proces odseparowany
 
-$username_sql = new Def(Source, Param)
-$password_sql = new Def(Source, Param)
+    $username_sql = new Def(Source, Param)
+    $password_sql = new Def(Source, Param)
 
 lub 
 
-new DefSourceCollection(Source, [
-Param1,
-Param2
-])
+    new DefSourceCollection(Source, [
+    Param1,
+    Param2
+    ])
 
 ### Use it one by one
-DefProcess( $username_sql, ProcessInsert )
-DefProcess( $password_sql, ProcessInsert )
+
+    DefProcess( $username_sql, ProcessInsert )
+    DefProcess( $password_sql, ProcessInsert )
 
 ### Use all of it
-new DefProcessCollection([
-  $username_sql,
-  $password_sql
-],
-[
-  ProcessInsert
-]);
+
+    new DefProcessCollection([
+      $username_sql,
+      $password_sql
+    ],
+    [
+      ProcessInsert
+    ]);
 
 
 ## Przykład złożonego parametru
