@@ -401,6 +401,13 @@ new DefCollection(
 $username_sql = new Def(Source, Param)
 $password_sql = new Def(Source, Param)
 
+lub 
+
+new DefSourceCollection(Source, [
+Param1,
+Param2
+])
+
 ### Use it one by one
 DefProcess( $username_sql, ProcessInsert )
 DefProcess( $password_sql, ProcessInsert )
