@@ -195,9 +195,10 @@ ta sama wartość może być pokazana jako dwa różne formaty
           
     class ParamJsonIdentifier 
       id (request id)
-      source (url)
-      name (variable name)
-      type (string)
+      source: Source:RestApi
+      path: "/users/"
+      name: first_name
+      type: Json::String
   
     class ParamJsonType
       static String
@@ -301,6 +302,41 @@ ta sama wartość może być pokazana jako dwa różne formaty
       $word = ''
       $shortcut = ''
       $description = ''    
+      
+
+## Parametr z Identyfikatorem
+
+   
+
+## Identyfikator for RESTAPI
+
+
+    abstract class Param
+      
+      $id (request id)
+      $source: Source:RestApi /Sql /Html
+      $path: "/users/" /xpath
+      $name: first_name
+      $type: Json::String      
+      $required = true; // if optional param in collection
+      $validator_collection = new ValidatorCollection() 
+      $value = '';
+      
+      
+      create()
+      read()
+      update()
+      delete()
+      
+      validate()
+      
+          
+    
+    class ValidatorCollection
+      $collection = [
+        ['empty',false]
+        ['format', 'XX-XXX']
+      ]
       
 
 ## Przykład złożonego parametru
