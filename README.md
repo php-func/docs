@@ -304,35 +304,30 @@ ta sama wartość może być pokazana jako dwa różne formaty
       $description = ''    
       
 
-## Parametr z Identyfikatorem
+## Parametr z Identyfikatorem 
 
-   
-
-## Identyfikator for RESTAPI
-
-
-    abstract class Param
+    class Param implements ParamValue
       
-      $id (request id)
+      $id (request, row, form id)
+      
       $source: Source:RestApi /Sql /Html
       $path: "/users/" /xpath
+      
       $name: first_name
+      $type: Json::String
+      
       $label: "First Name"
       $description: "First Name of User, Requeired"
-      $type: Json::String      
+           
       $required = true; // if optional param in collection
       $validator_collection = new ValidatorCollection() 
+      
       $value = '';
       
+      setValue();
+      getValue();
       
-      create()
-      read()
-      update()
-      delete()
       
-      validate()
-      
-          
     
     class ValidatorCollection
       $collection = [
@@ -340,6 +335,85 @@ ta sama wartość może być pokazana jako dwa różne formaty
         ['format', 'XX-XXX']
       ]
       
+      validate()
+      
+
+
+## Parametr z Identyfikatorem w 3 uzyciach
+stworzenie kolejnych objektów klasy Param, różne parametry dla różnych implementacji:
+
+### Definition of Collection process for param in source
+$username_sql = new Def(Source, ProcessCollection, Param)
+$password_sql = new Def(Source, ProcessCollection, Param)
+
+### Use it one by one
+$username_sql->Insert()
+$password_sql->Insert()
+
+### Use all of it
+new DefCollection(
+  $username_sql,
+  $password_sql
+)->Insert()
+
+ Source:
+    + Sql
+    + RestApi
+    + ViewHtml
+    
+    class Source
+      $id (request, row, form id)      
+      $source: Source:RestApi /Sql /Html
+      $path: "/users/" /xpath
+      $required: false
+    
+
+ Process:
+   + Create
+   + Read
+   + Update
+   + Delete
+   
+   
+    class Process
+      $value
+      $validator_collection = new ValidatorCollection() 
+    
+    
+    class ProcessCollection
+    
+  Param:    
+     + Username
+     + Password
+      
+    class Param
+      $name: first_name
+      $type: Json::String      
+      $label: "First Name"
+      $description: "First Name of User, Required"            
+      $value = '';
+      
+      setValue();
+      getValue();
+        
+## Inny sposób uzycia, proces odseparowany
+
+$username_sql = new Def(Source, Param)
+$password_sql = new Def(Source, Param)
+
+### Use it one by one
+DefProcess( $username_sql, ProcessInsert )
+DefProcess( $password_sql, ProcessInsert )
+
+### Use all of it
+new DefProcessCollection([
+  $username_sql,
+  $password_sql
+],
+[
+  ProcessInsert
+]);
+
 
 ## Przykład złożonego parametru
 
