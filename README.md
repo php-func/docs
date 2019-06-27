@@ -317,6 +317,8 @@ ta sama wartość może być pokazana jako dwa różne formaty
       $source: Source:RestApi /Sql /Html
       $path: "/users/" /xpath
       $name: first_name
+      $label: "First Name"
+      $description: "First Name of User, Requeired"
       $type: Json::String      
       $required = true; // if optional param in collection
       $validator_collection = new ValidatorCollection() 
