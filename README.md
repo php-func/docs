@@ -409,8 +409,8 @@ Param:
 lub 
 
     new DefSourceCollection(Source, [
-    Param1,
-    Param2
+      Param1,
+      Param2
     ])
 
 ### Use it one by one
@@ -429,6 +429,94 @@ lub
     ]);
 
 
+## Struktura
+
+
+
+      class ParamFormat
+        $name: postcode        
+        $label: "kod Pocztowy"
+        $description: "Format XX-XXX"        
+        $collection = new ParamCollection([
+            Param( Attr(XX, Int, dwie cyfry) , $validator(2 cyfry)),
+            Param( Attr(-,string, znak rozdizeilajacy),
+            Param( Attr(XXX, integer, 3 cyfry, $validator(3 cyfry))  
+          ])
+          
+        get()
+        set()
+       
+      
+      class ParamString
+        $name: postcode        
+        $label: "kod Pocztowy"
+        $description: "Format XX-XXX"
+        $value = ''; //string
+          
+        get()
+        set()
+        
+        
+      class Def
+        $name: postcode        
+        $label: "kod Pocztowy"
+        $description: "Format XX-XXX"            
+        $value = '';
+        $type=;
+        $validator = ;
+        
+        
+      class Source
+        $id (request, row, form id)      
+        $source: Source:RestApi /Sql /Html
+        $path: "/users/" /xpath
+        
+        $required: false
+        $type: Json::String      
+        $format: XX-XXX
+
+
+      class Process implements Run
+        $param
+        $source        
+        $name="Create"
+        $validator_collection = new ValidatorCollection() 
+        
+        function Run()
+        
+
+## Struktura: Variable, Param, Source, Process
+
+    Variable: name, value      
+        Param: label, description, VariableCollection, ValidationCollection
+
+            Source:                             
+              $id (request, row, form id)      
+              $source: Source:RestApi /Sql /Html
+              $path: "/users/" /xpath
+              $required: false
+              $Type:  php::int, sql::varchar, json::string  
+              $format: XX-XXX
+
+               
+               Def
+                $Source
+                $Param: GenericParam::postcode
+                $ProcessCollection: sql::insert
+
+              Process
+                $Source: SqlAdress::Postcode
+                $Param: GenericParam::postcode
+                $Process: sql::insert
+                
+  
+      class VariableCollection
+        $collection = [
+            DwieCyfry,
+            Rodzielnik,
+            TrzyCyfry  
+          ];
+          
 ## Przykład złożonego parametru
 
   GermanyAddressParam extends ParamFormat implements ParamCollection
