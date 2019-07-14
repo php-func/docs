@@ -1,3 +1,17 @@
+## Implementacja mapowania.
+   
+   pomysł polega na zapisywaniu każdego atrybutu ze źródła, np tabeli bazy danych
+   jako parametr-objekt:
+   -typ zmiennej (mapowany z bazy danych)
+   -nazwa źródła (uchwyt objektu bazy danych)
+   -nazwa zmiennej (tabela + kolumna)
+   – id wiersza z którego pochodzi zmienna
+   
+   w takiej implementacji każda zmienna jest autonmiczna i pozwala to na jej dowolne użycie i zmienianie, co sprawia, że 
+   można bez tworzenia nowych klas używać ją w różnych miejscach nie tracąc połączenia z bazą danych, by dane auktaulizować.
+   
+   
+   
 ## Parametr z Identyfikatorem 
 
     class Param implements ParamValue
