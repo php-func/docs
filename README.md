@@ -1,7 +1,19 @@
-https://phpfunc-com.github.io/docs/
+
 
 # [PhpFunc.com](https://docs.PhpFunc.com)
 Documentation for Php Func Repositories
+https://phpfunc-com.github.io/docs/
+
+## Menu
+
++ [www.phpfunc.com](http://www.phpfunc.com/)
+
++ [Documentation](https://docs.phpfunc.com/)
+
++ [Blog](https://blog.phpfunc.com/)
+
++ [Logo](https://logo.phpfunc.com/)
+
 
 [APISQL.md](APISQL.md)
 
